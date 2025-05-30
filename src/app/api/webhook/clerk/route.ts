@@ -1,5 +1,4 @@
 import { Webhook } from 'svix';
-import prisma from '@/lib/db';
 import { WebhookEvent } from '@clerk/nextjs/server';
 
 export async function POST(req: Request) {
@@ -40,27 +39,26 @@ export async function POST(req: Request) {
 
   console.log('Webhook event type:', event.type);
 
-  // Handle user.created event
-  if (event.type === 'user.created') {
-    const { id, email_addresses, first_name, last_name } = event.data;
-    console.log('Creating user:', { id, email: email_addresses[0]?.email_address });
-    
-    try {
-      const user = await prisma.user.upsert({
-        where: { id },
-        update: {},
-        create: {
-          id,
-          email: email_addresses[0]?.email_address,
-          name: `${first_name || ''} ${last_name || ''}`.trim(),
-        },
-      });
-      console.log('User created successfully:', user);
-    } catch (error) {
-      console.error('Error creating user:', error);
-      return new Response('Error creating user', { status: 500 });
-    }
-  }
+  // Commented out: User creation logic for stateless MVP
+  // if (event.type === 'user.created') {
+  //   const { id, email_addresses, first_name, last_name } = event.data;
+  //   console.log('Creating user:', { id, email: email_addresses[0]?.email_address });
+  //   try {
+  //     const user = await prisma.user.upsert({
+  //       where: { id },
+  //       update: {},
+  //       create: {
+  //         id,
+  //         email: email_addresses[0]?.email_address,
+  //         name: `${first_name || ''} ${last_name || ''}`.trim(),
+  //       },
+  //     });
+  //     console.log('User created successfully:', user);
+  //   } catch (error) {
+  //     console.error('Error creating user:', error);
+  //     return new Response('Error creating user', { status: 500 });
+  //   }
+  // }
 
   return new Response('OK', { status: 200 });
 } 
