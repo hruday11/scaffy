@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 25% 8%;
+    --foreground: 0 0% 100%;
+    --neon-orange: 25 100% 50%;
+    --neon-blue: 195 100% 50%;
+    --neon-cyan: 180 100% 50%;
+    --card: 240 20% 12%;
+    --card-foreground: 0 0% 100%;
+    --border: 240 20% 20%;
+    --ring: 195 100% 50%;
+  }
+
+  body {
+    @apply bg-cyber-black text-white min-h-screen;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(24, 24, 36, 0.5) 0%, transparent 50%),
+      radial-gradient(circle at 85% 30%, rgba(0, 179, 255, 0.05) 0%, transparent 50%);
+  }
+
+  ::selection {
+    @apply bg-cyan-500/30 text-white;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-cyber-border;
+  }
+  body {
+    @apply bg-cyber-black text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition duration-150 ease-in-out;
+  }
+
+  .card {
+    @apply bg-white shadow-lg rounded-xl p-6;
+  }
+
+  .card-header {
+    @apply flex justify-between items-center border-b pb-4;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-gray-900;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-indigo-100 text-indigo-800;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-info {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-danger {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .neon-text {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 30px rgba(255, 255, 255, 0.8),
+                 0 0 40px rgba(0, 179, 255, 0.8),
+                 0 0 70px rgba(0, 179, 255, 0.8),
+                 0 0 80px rgba(0, 179, 255, 0.8),
+                 0 0 100px rgba(0, 179, 255, 0.8),
+                 0 0 150px rgba(0, 179, 255, 0.8);
+  }
+
+  .neon-border {
+    position: relative;
+    border: 1px solid rgba(0, 179, 255, 0.5);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .neon-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 179, 255, 0.4),
+      transparent
+    );
+    transition: 0.5s;
+    animation: neon-border-shine 3s infinite;
+  }
+
+  .cyber-grid {
+    background-image: linear-gradient(rgba(0, 179, 255, 0.1) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 179, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: center center;
+  }
+
+  .cyber-button {
+    @apply relative px-6 py-3 text-white font-bold overflow-hidden transition-all duration-300;
+    background: linear-gradient(45deg, #00b3ff, #00f0ff);
+    border: 2px solid rgba(0, 179, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 179, 255, 0.5),
+                0 0 30px rgba(0, 179, 255, 0.3),
+                0 0 45px rgba(0, 179, 255, 0.1);
+  }
+
+  .cyber-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 179, 255, 0.6),
+                0 0 40px rgba(0, 179, 255, 0.4),
+                0 0 60px rgba(0, 179, 255, 0.2);
+  }
+
+  .cyber-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: 0.5s;
+    animation: cyber-button-shine 3s infinite;
+  }
+
+  .cyber-card {
+    @apply bg-cyber-darker rounded-lg p-6 relative overflow-hidden;
+    border: 1px solid rgba(0, 179, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 179, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .cyber-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(0, 179, 255, 0.05),
+      transparent
+    );
+  }
+
+  .cyber-input {
+    @apply bg-cyber-dark border-2 border-cyber-primary/20 text-white rounded-md px-4 py-2;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .cyber-input:focus {
+    @apply outline-none border-cyber-primary/50;
+    box-shadow: 0 0 15px rgba(0, 179, 255, 0.3);
+  }
+
+  .cyber-badge {
+    @apply inline-flex items-center px-3 py-1 rounded text-sm font-medium;
+    background: linear-gradient(45deg, rgba(0, 179, 255, 0.1), rgba(0, 240, 255, 0.1));
+    border: 1px solid rgba(0, 179, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 179, 255, 0.1);
+  }
+
+  .stats-value {
+    @apply text-4xl font-bold;
+    color: #00b3ff;
+    text-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes neon-border-shine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes cyber-button-shine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #12141c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2b33;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3b43;
+}
