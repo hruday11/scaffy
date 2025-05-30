@@ -83,40 +83,40 @@ export default function PromptForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-cyber-black to-cyber-darker">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-cyber-primary to-cyber-secondary bg-clip-text text-transparent">
-            Scaffy Backend Generator
+          <h1 className="text-7xl font-bold mb-6 bg-gradient-to-r from-cyber-primary via-cyber-secondary to-cyber-primary bg-clip-text text-transparent drop-shadow-[0_0_30px_#00b3ff] dark:drop-shadow-[0_0_30px_#00b3ff] animate-pulse">
+            Scaffy
           </h1>
-          <p className="text-xl text-cyber-text-secondary mb-12 max-w-3xl mx-auto">
+          <p className="text-2xl text-cyber-text-secondary mb-12 max-w-3xl mx-auto dark:text-cyber-lightText/80 font-light tracking-wide">
             Generate production-ready backend code in seconds, not days. Transform your ideas into scalable infrastructure.
           </p>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
-            <div className="cyber-card p-6 text-center">
-              <div className="stats-value mb-2">80k+</div>
-              <div className="text-cyber-text-secondary">Generated Projects</div>
+            <div className="cyber-card bg-cyber-dark/40 dark:bg-cyber-lightCard/40 p-8 text-center border-cyber-primary/20 shadow-neon backdrop-blur-xl hover:border-cyber-primary/40 transition-all duration-300">
+              <div className="stats-value mb-3 text-4xl font-bold bg-gradient-to-r from-cyber-primary to-cyber-secondary bg-clip-text text-transparent">80k+</div>
+              <div className="text-cyber-text-secondary dark:text-cyber-lightText/80 text-lg">Generated Projects</div>
             </div>
-            <div className="cyber-card p-6 text-center">
-              <div className="stats-value mb-2">75%</div>
-              <div className="text-cyber-text-secondary">Development Time Saved</div>
+            <div className="cyber-card bg-cyber-dark/40 dark:bg-cyber-lightCard/40 p-8 text-center border-cyber-primary/20 shadow-neon backdrop-blur-xl hover:border-cyber-primary/40 transition-all duration-300">
+              <div className="stats-value mb-3 text-4xl font-bold bg-gradient-to-r from-cyber-primary to-cyber-secondary bg-clip-text text-transparent">75%</div>
+              <div className="text-cyber-text-secondary dark:text-cyber-lightText/80 text-lg">Development Time Saved</div>
             </div>
-            <div className="cyber-card p-6 text-center">
-              <div className="stats-value mb-2">3x</div>
-              <div className="text-cyber-text-secondary">Faster Deployment</div>
+            <div className="cyber-card bg-cyber-dark/40 dark:bg-cyber-lightCard/40 p-8 text-center border-cyber-primary/20 shadow-neon backdrop-blur-xl hover:border-cyber-primary/40 transition-all duration-300">
+              <div className="stats-value mb-3 text-4xl font-bold bg-gradient-to-r from-cyber-primary to-cyber-secondary bg-clip-text text-transparent">3x</div>
+              <div className="text-cyber-text-secondary dark:text-cyber-lightText/80 text-lg">Faster Deployment</div>
             </div>
           </div>
 
           {/* Main Form */}
-          <div className="cyber-card neon-border max-w-4xl mx-auto p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="cyber-card neon-border max-w-4xl mx-auto p-10 bg-cyber-dark/30 dark:bg-cyber-lightCard/30 border-cyber-primary/20 shadow-neon-strong backdrop-blur-xl hover:border-cyber-primary/40 transition-all duration-300">
+            <form onSubmit={handleSubmit} className="space-y-8">
               <div>
                 <label
                   htmlFor="prompt"
-                  className="block text-xl font-medium text-cyber-primary mb-4"
+                  className="block text-2xl font-bold mb-6 bg-gradient-to-r from-cyber-primary via-cyber-secondary to-cyber-primary bg-clip-text text-transparent drop-shadow-[0_0_30px_#00b3ff] dark:drop-shadow-[0_0_30px_#00b3ff] animate-pulse tracking-wide"
                 >
                   Describe Your Backend Requirements
                 </label>
@@ -124,7 +124,7 @@ export default function PromptForm() {
                   id="prompt"
                   name="prompt"
                   rows={4}
-                  className="cyber-input w-full text-lg"
+                  className="cyber-input w-full text-lg bg-cyber-black/40 dark:bg-cyber-light/40 border-cyber-primary/20 focus:border-cyber-primary/60 dark:text-cyber-lightText rounded-lg p-4 transition-all duration-300"
                   placeholder="e.g., I want a SaaS for freelancers to track clients and send invoices..."
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
@@ -134,11 +134,11 @@ export default function PromptForm() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="cyber-button w-full text-lg"
+                className="cyber-button w-full text-xl py-4 font-medium tracking-wide hover:scale-[1.02] transition-all duration-300"
               >
                 {isLoading ? (
                   <span className="flex items-center justify-center">
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
@@ -154,14 +154,14 @@ export default function PromptForm() {
 
         {/* Generated Structure */}
         {structure && (
-          <div className="cyber-card space-y-8 mt-16">
-            <div className="flex justify-between items-center border-b border-cyber-primary/20 pb-6">
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-cyber-primary to-cyber-secondary bg-clip-text text-transparent">
+          <div className="cyber-card space-y-8 mt-16 bg-cyber-dark/30 dark:bg-cyber-lightCard/30 border-cyber-primary/20 shadow-neon-strong backdrop-blur-xl hover:border-cyber-primary/40 transition-all duration-300 p-10">
+            <div className="flex justify-between items-center border-b border-cyber-primary/20 pb-8">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-cyber-primary to-cyber-secondary bg-clip-text text-transparent tracking-wide">
                 Your Generated Backend
               </h2>
               <button
                 onClick={handleDownload}
-                className="cyber-button"
+                className="cyber-button px-6 py-3 text-lg font-medium tracking-wide hover:scale-[1.02] transition-all duration-300"
               >
                 <span className="flex items-center">
                   <svg className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,18 +174,18 @@ export default function PromptForm() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Database Section */}
-              <div className="space-y-6">
-                <div className="cyber-card">
-                  <h3 className="text-2xl font-semibold text-cyber-primary mb-6">Database Schema</h3>
+              <div className="space-y-8">
+                <div className="cyber-card bg-cyber-dark/40 dark:bg-cyber-lightCard/40 p-8 border-cyber-primary/20 shadow-neon backdrop-blur-xl hover:border-cyber-primary/40 transition-all duration-300">
+                  <h3 className="text-2xl font-semibold text-cyber-primary mb-8 tracking-wide">Database Schema</h3>
                   <ul className="divide-y divide-cyber-primary/20">
                     {structure.database.tables.map((table) => (
-                      <li key={table.name} className="py-4">
-                        <h4 className="text-xl font-medium text-cyber-primary mb-3">{table.name}</h4>
-                        <div className="grid grid-cols-2 gap-3">
-                          {table.columns.map((column) => (
-                            <div key={`${table.name}-${column.name}`} className="cyber-badge">
-                              <span className="font-medium">{column.name}</span>
-                              <span className="text-cyber-text-secondary ml-2">({column.type})</span>
+                      <li key={table.name} className="py-6">
+                        <h4 className="text-xl font-medium text-cyber-primary mb-4 tracking-wide">{table.name}</h4>
+                        <div className="grid grid-cols-2 gap-4">
+                          {table.fields.map((field) => (
+                            <div key={`${table.name}-${field.name}`} className="cyber-badge bg-cyber-dark/60 dark:bg-cyber-light/60 border-cyber-primary/20 hover:border-cyber-primary/40 transition-all duration-300">
+                              <span className="font-medium">{field.name}</span>
+                              <span className="text-cyber-text-secondary ml-2">({field.type})</span>
                             </div>
                           ))}
                         </div>
@@ -194,12 +194,12 @@ export default function PromptForm() {
                   </ul>
                 </div>
 
-                <div className="cyber-card">
-                  <h3 className="text-2xl font-semibold text-cyber-primary mb-6">Authentication</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {structure.auth.providers.map((provider) => (
-                      <div key={provider} className="cyber-badge">
-                        {provider}
+                <div className="cyber-card bg-cyber-dark/40 dark:bg-cyber-lightCard/40 p-8 border-cyber-primary/20 shadow-neon backdrop-blur-xl hover:border-cyber-primary/40 transition-all duration-300">
+                  <h3 className="text-2xl font-semibold text-cyber-primary mb-8 tracking-wide">Authentication</h3>
+                  <div className="flex flex-wrap gap-4">
+                    {structure.auth.providers.map((provider, idx) => (
+                      <div key={provider.name || idx} className="cyber-badge bg-cyber-dark/60 dark:bg-cyber-light/60 border-cyber-primary/20 hover:border-cyber-primary/40 transition-all duration-300">
+                        {provider.name}
                       </div>
                     ))}
                   </div>
@@ -207,40 +207,40 @@ export default function PromptForm() {
               </div>
 
               {/* API Section */}
-              <div className="space-y-6">
-                <div className="cyber-card">
-                  <h3 className="text-2xl font-semibold text-cyber-primary mb-6">API Endpoints</h3>
+              <div className="space-y-8">
+                <div className="cyber-card bg-cyber-dark/40 dark:bg-cyber-lightCard/40 p-8 border-cyber-primary/20 shadow-neon backdrop-blur-xl hover:border-cyber-primary/40 transition-all duration-300">
+                  <h3 className="text-2xl font-semibold text-cyber-primary mb-8 tracking-wide">API Endpoints</h3>
                   <ul className="divide-y divide-cyber-primary/20">
                     {structure.api.endpoints.map((endpoint, index) => (
-                      <li key={`${endpoint.path}-${endpoint.method}-${index}`} className="py-4">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className={`cyber-badge
+                      <li key={`${endpoint.path}-${endpoint.method}-${index}`} className="py-6">
+                        <div className="flex items-center gap-4 mb-3">
+                          <span className={`cyber-badge bg-cyber-dark/60 dark:bg-cyber-light/60 border-cyber-primary/20 hover:border-cyber-primary/40 transition-all duration-300
                             ${endpoint.method === 'GET' ? 'text-green-400' :
                             endpoint.method === 'POST' ? 'text-blue-400' :
                             endpoint.method === 'PUT' ? 'text-yellow-400' :
                             'text-red-400'}`}>
                             {endpoint.method}
                           </span>
-                          <code className="text-base font-mono bg-cyber-dark px-3 py-1 rounded">
+                          <code className="text-base font-mono bg-cyber-dark/60 dark:bg-cyber-light/60 px-4 py-2 rounded border border-cyber-primary/20">
                             {endpoint.path}
                           </code>
                         </div>
-                        <p className="text-cyber-text-secondary">{endpoint.description}</p>
+                        <p className="text-cyber-text-secondary dark:text-cyber-lightText/80">{endpoint.description}</p>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {structure.payments.stripeProducts.length > 0 && (
-                  <div className="cyber-card">
-                    <h3 className="text-2xl font-semibold text-cyber-primary mb-6">Payment Products</h3>
+                {structure.payments.products.length > 0 && (
+                  <div className="cyber-card bg-cyber-dark/40 dark:bg-cyber-lightCard/40 p-8 border-cyber-primary/20 shadow-neon backdrop-blur-xl hover:border-cyber-primary/40 transition-all duration-300">
+                    <h3 className="text-2xl font-semibold text-cyber-primary mb-8 tracking-wide">Payment Products</h3>
                     <ul className="divide-y divide-cyber-primary/20">
-                      {structure.payments.stripeProducts.map((product, index) => (
-                        <li key={`${product.name}-${index}`} className="py-4">
-                          <div className="space-y-3">
-                            <h4 className="text-xl font-medium text-cyber-primary">{product.name}</h4>
-                            <p className="text-cyber-text-secondary">{product.priceDescription}</p>
-                            <div className="cyber-badge">
+                      {structure.payments.products.map((product, index) => (
+                        <li key={`${product.name}-${index}`} className="py-6">
+                          <div className="space-y-4">
+                            <h4 className="text-xl font-medium text-cyber-primary tracking-wide">{product.name}</h4>
+                            <p className="text-cyber-text-secondary dark:text-cyber-lightText/80">{product.priceDescription}</p>
+                            <div className="cyber-badge bg-cyber-dark/60 dark:bg-cyber-light/60 border-cyber-primary/20 hover:border-cyber-primary/40 transition-all duration-300">
                               {product.type}
                             </div>
                           </div>
