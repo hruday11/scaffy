@@ -90,8 +90,5 @@ module.exports = {
         '2xl': '6rem',
       },
     },
-  },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  }
 } 
