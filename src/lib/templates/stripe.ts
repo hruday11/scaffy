@@ -1,6 +1,6 @@
-import type { StripeProduct } from '@/types/api';
+import type { PaymentProduct } from '@/types/api';
 
-export function generateStripeSetup(products: StripeProduct[]): string {
+export function generateStripeSetup(products: PaymentProduct[]): string {
   return `import Stripe from 'stripe';
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
@@ -52,6 +52,6 @@ export async function POST(req: Request) {
 }`;
 }
 
-export function generateStripeConfig(products: StripeProduct[]): string {
+export function generateStripeConfig(products: PaymentProduct[]): string {
   return `export const STRIPE_PRODUCTS = ${JSON.stringify(products, null, 2)};`;
 } 
